@@ -1,0 +1,441 @@
+﻿@model PluralApp.Models.HomeModel
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    @Html.Partial("/Views/Shared/Head.cshtml")
+
+
+
+    <style>
+        .tile-area-controls {
+            position: fixed;
+            right: 40px;
+            top: 40px;
+        }
+
+        .tile-group {
+            left: 100px;
+        }
+
+        .tile, .tile-small, .tile-sqaure, .tile-wide, .tile-large, .tile-big, .tile-super {
+            opacity: 0;
+            -webkit-transform: scale(.8);
+            transform: scale(.8);
+        }
+
+        #charmSettings .button {
+            margin: 5px;
+        }
+
+        .schemeButtons {
+            /*width: 300px;*/
+        }
+
+
+
+    </style>
+
+
+
+    <script>
+        (function($) {
+            $.StartScreen = function(){
+                var plugin = this;
+                var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
+                plugin.init = function(){
+                    setTilesAreaSize();
+                    if (width > 640) addMouseWheel();
+                };
+
+                var setTilesAreaSize = function(){
+                    var groups = $(".tile-group");
+                    var tileAreaWidth = 80;
+                    $.each(groups, function(i, t){
+                        if (width <= 640) {
+                            tileAreaWidth = width;
+                        } else {
+                            tileAreaWidth += $(t).outerWidth() + 80;
+                        }
+                    });
+                    $(".tile-area").css({
+                        width: tileAreaWidth
+                    });
+                };
+
+                var addMouseWheel = function (){
+                    $("body").mousewheel(function(event, delta, deltaX, deltaY){
+                        var page = $(document);
+                        var scroll_value = delta * 50;
+                        page.scrollLeft(page.scrollLeft() - scroll_value);
+                        return false;
+                    });
+                };
+
+                plugin.init();
+            }
+        })(jQuery);
+
+        $(function(){
+            $.StartScreen();
+
+            var tiles = $(".tile, .tile-small, .tile-sqaure, .tile-wide, .tile-large, .tile-big, .tile-super");
+
+            $.each(tiles, function(){
+                var tile = $(this);
+                setTimeout(function(){
+                    tile.css({
+                        opacity: 1,
+                        "-webkit-transform": "scale(1)",
+                        "transform": "scale(1)",
+                        "-webkit-transition": ".3s",
+                        "transition": ".3s"
+                    });
+                }, Math.floor(Math.random()*500));
+            });
+
+            $(".tile-group").animate({
+                left: 0
+            });
+        });
+
+        function showCharms(id){
+            var  charm = $(id).data("charm");
+            if (charm.element.data("opened") === true) {
+                charm.close();
+            } else {
+                charm.open();
+            }
+        }
+
+        function setSearchPlace(el){
+            var a = $(el);
+            var text = a.text();
+            var toggle = a.parents('label').children('.dropdown-toggle');
+
+            toggle.text(text);
+        }
+
+        $(function(){
+            var current_tile_area_scheme = localStorage.getItem('tile-area-scheme') || "tile-area-scheme-dark";
+            $(".tile-area").removeClass (function (index, css) {
+                return (css.match (/(^|\s)tile-area-scheme-\S+/g) || []).join(' ');
+            }).addClass(current_tile_area_scheme);
+
+            $(".schemeButtons .button").hover(
+                    function(){
+                        var b = $(this);
+                        var scheme = "tile-area-scheme-" +  b.data('scheme');
+                        $(".tile-area").removeClass (function (index, css) {
+                            return (css.match (/(^|\s)tile-area-scheme-\S+/g) || []).join(' ');
+                        }).addClass(scheme);
+                    },
+                    function(){
+                        $(".tile-area").removeClass (function (index, css) {
+                            return (css.match (/(^|\s)tile-area-scheme-\S+/g) || []).join(' ');
+                        }).addClass(current_tile_area_scheme);
+                    }
+            );
+
+            $(".schemeButtons .button").on("click", function(){
+                var b = $(this);
+                var scheme = "tile-area-scheme-" +  b.data('scheme');
+
+                $(".tile-area").removeClass (function (index, css) {
+                    return (css.match (/(^|\s)tile-area-scheme-\S+/g) || []).join(' ');
+                }).addClass(scheme);
+
+                current_tile_area_scheme = scheme;
+                localStorage.setItem('tile-area-scheme', scheme);
+
+                showSettings();
+            });
+        });
+
+
+    </script>
+
+</head>
+<body style="overflow-y: hidden;">
+    <div data-role="charm" id="charmSearch">
+        <h1 class="text-light">Search</h1>
+        <hr class="thin" />
+        <br />
+        <div class="input-control text full-size">
+            <label>
+                <span class="dropdown-toggle drop-marker-light">Anywhere</span>
+                <ul class="d-menu" data-role="dropdown">
+                    <li><a onclick="setSearchPlace(this)">Anywhere</a></li>
+                    <li><a onclick="setSearchPlace(this)">Options</a></li>
+                    <li><a onclick="setSearchPlace(this)">Files</a></li>
+                    <li><a onclick="setSearchPlace(this)">Internet</a></li>
+                </ul>
+            </label>
+            <input type="text">
+            <button class="button"><span class="mif-search"></span></button>
+        </div>
+    </div>
+
+    <div data-role="charm" id="charmSettings" data-position="top">
+        <h1 class="text-light">Settings</h1>
+        <hr class="thin" />
+        <br />
+        <div class="schemeButtons">
+            <div class="button square-button tile-area-scheme-dark" data-scheme="dark"></div>
+            <div class="button square-button tile-area-scheme-darkBrown" data-scheme="darkBrown"></div>
+            <div class="button square-button tile-area-scheme-darkCrimson" data-scheme="darkCrimson"></div>
+            <div class="button square-button tile-area-scheme-darkViolet" data-scheme="darkViolet"></div>
+            <div class="button square-button tile-area-scheme-darkMagenta" data-scheme="darkMagenta"></div>
+            <div class="button square-button tile-area-scheme-darkCyan" data-scheme="darkCyan"></div>
+            <div class="button square-button tile-area-scheme-darkCobalt" data-scheme="darkCobalt"></div>
+            <div class="button square-button tile-area-scheme-darkTeal" data-scheme="darkTeal"></div>
+            <div class="button square-button tile-area-scheme-darkEmerald" data-scheme="darkEmerald"></div>
+            <div class="button square-button tile-area-scheme-darkGreen" data-scheme="darkGreen"></div>
+            <div class="button square-button tile-area-scheme-darkOrange" data-scheme="darkOrange"></div>
+            <div class="button square-button tile-area-scheme-darkRed" data-scheme="darkRed"></div>
+            <div class="button square-button tile-area-scheme-darkPink" data-scheme="darkPink"></div>
+            <div class="button square-button tile-area-scheme-darkIndigo" data-scheme="darkIndigo"></div>
+            <div class="button square-button tile-area-scheme-darkBlue" data-scheme="darkBlue"></div>
+            <div class="button square-button tile-area-scheme-lightBlue" data-scheme="lightBlue"></div>
+            <div class="button square-button tile-area-scheme-lightTeal" data-scheme="lightTeal"></div>
+            <div class="button square-button tile-area-scheme-lightOlive" data-scheme="lightOlive"></div>
+            <div class="button square-button tile-area-scheme-lightOrange" data-scheme="lightOrange"></div>
+            <div class="button square-button tile-area-scheme-lightPink" data-scheme="lightPink"></div>
+            <div class="button square-button tile-area-scheme-grayed" data-scheme="grayed"></div>
+        </div>
+    </div>
+
+    <div class="tile-area tile-area-scheme-dark fg-white" style="height: 100%; max-height: 100% !important;">
+        <h1 class="tile-area-title">Customized Goods Portal</h1>
+        <div class="tile-area-controls">
+            <button class="image-button icon-right bg-transparent fg-white bg-grayDark bg-hover-dark no-border"><span class="sub-header no-margin text-light">Deniss Strods</span> <span class="icon mif-user"></span></button>
+            <button class="square-button bg-transparent fg-white bg-grayDark bg-hover-dark no-border" onclick="showCharms('#charmSearch')"><span class="mif-search"></span></button>
+            <button class="square-button bg-transparent fg-white bg-grayDark bg-hover-dark no-border" onclick="showCharms('#charmSettings')"><span class="mif-cog"></span></button>
+            <a href="../tiles.html" class="square-button bg-transparent fg-white bg-grayDark bg-hover-dark no-border"><span class="mif-switch"></span></a>
+        </div>
+
+        <div class="tile-group">
+            <div class="tile-big tile-wide-y bg-white" data-role="tile">
+                <div class="tile-content">
+                    <div class="panel" style="height: 100%">
+                        <div class="heading bg-darkRed fg-white"><span class="title text-light">Welcome!</span></div>
+                        <div class="content fg-dark clear-float" style="height: 100%">
+                            <img src="~/img/ls.jpg" class="place-left margin10" style="height: 230px">
+                            <h2 class="text-light">Whoever you are, find whatever you are into</h2>
+                            <p>This all is for you</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+
+
+            <div class="tile-group double">
+                <span class="tile-group-title">Custom Cups</span>
+                <div class="tile-container">
+                    <a href="~/Editor/cup">
+                        <div class="tile-wide bg-green fg-white custom_box" data-role="tile">
+                            <div class="tile-content iconic">
+                                <img src="~/img/cup/espresso_cup-512.png" class="icon">
+
+                            </div>
+                            <div class="tile-label">Create your own design of the Cup</div>
+                        </div>
+                    </a>
+
+                    <div class="tile custom_box" data-role="tile" data-role="tile" data-effect="slideUpDown">
+                        <div class="tile-content">
+
+
+                            @foreach (var item in Model.bestAvalableCups)
+                            {
+
+                                <a href="~/editor/viewcup/@item.id_in_category"><div class="live-slide"><img src="~/upload/models/@(item.item_type+item.id_in_category).png" data-role="fitImage" data-format="fill"></div></a>
+                            }
+
+                        </div>
+                        <div class="tile-label">Cups</div>
+                    </div>
+
+
+
+
+                    <div class="tile-small bg-yellow custom_box" data-role="tile">
+
+                        <div class="tile-content iconic">
+                            <a href="~/editor/viewcup/@Model.bestAvalableCups.ToArray()[0].id_in_category">
+                                <img src="~/upload/models/@(Model.bestAvalableCups.ToArray()[0].item_type + Model.bestAvalableCups.ToArray()[0].id_in_category).png">
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="tile-small bg-green custom_box" data-role="tile">
+                        <div class="tile-content iconic">
+                            <a href="~/editor/viewcup/@Model.bestAvalableCups.ToArray()[1].id_in_category">
+                                <img src="~/upload/models/@(Model.bestAvalableCups.ToArray()[1].item_type + Model.bestAvalableCups.ToArray()[1].id_in_category).png">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="tile-small bg-amber custom_box" data-role="tile">
+                        <div class="tile-content iconic">
+                            <a href="~/editor/viewcup/@Model.bestAvalableCups.ToArray()[2].id_in_category">
+                                <img src="~/upload/models/@(Model.bestAvalableCups.ToArray()[2].item_type + Model.bestAvalableCups.ToArray()[2].id_in_category).png">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="tile-small bg-orange custom_box" data-role="tile">
+                        <div class="tile-content iconic">
+                            <a href="~/editor/viewcup/@Model.bestAvalableCups.ToArray()[3].id_in_category">
+                                <img src="~/upload/models/@(Model.bestAvalableCups.ToArray()[3].item_type + Model.bestAvalableCups.ToArray()[3].id_in_category).png">
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        <div class="tile-group double">
+            <span class="tile-group-title">Gift Cards</span>
+            <div class="tile-container">
+                <div class="tile" data-role="tile">
+                    <div class="tile-content">
+                        <img src="" data-role="fitImage" data-format="square">
+                    </div>
+                </div>
+                <div class="tile-small" data-role="tile">
+                    <div class="tile-content">
+                        <img src="../images/Battlefield_4_Icon.png" data-role="fitImage" data-format="square">
+                    </div>
+                </div>
+                <div class="tile-small" data-role="tile">
+                    <div class="tile-content">
+                        <img src="../images/Crysis-2-icon.png" data-role="fitImage" data-format="square" data-frame-color="bg-steel">
+                    </div>
+                </div>
+                <div class="tile-small" data-role="tile">
+                    <div class="tile-content">
+                        <img src="../images/WorldofTanks.png" data-role="fitImage" data-format="square" data-frame-color="bg-dark">
+                    </div>
+                </div>
+                <div class="tile-small" data-role="tile">
+                    <div class="tile-content">
+                        <img src="../images/halo.jpg" data-role="fitImage" data-format="square">
+                    </div>
+                </div>
+                <div class="tile-wide bg-blue fg-white" data-role="tile">
+                    <div class="tile-content iconic">
+                        <img src="~/img/tshirt/title_icons/gift_card2.png" class="icon">
+                    </div>
+                    <div class="tile-label">Make it yourself!</div>
+                </div>
+            </div>
+        </div>
+
+
+            <div class="tile-group double">
+                <span class="tile-group-title">Custom T-Shirts</span>
+                <div class="tile-container">
+
+
+                    <div class="tile custom_box" data-role="tile">
+                        <div class="tile-content">
+
+
+                            @foreach (var item in Model.bestAvalableTshirts)
+                            {
+
+                                <a href="~/editor/viewtshirt/@item.id_in_category"><div class="live-slide"><img src="~/upload/models/@(item.item_type+item.id_in_category).png" data-role="fitImage" data-format="fill"></div></a>
+
+                            }
+
+                        </div>
+                    </div>
+
+
+                    <div class="tile-small bg-darkBlue custom_box" data-role="tile">
+                        <div class="tile-content iconic">
+                            <a href="~/editor/viewtshirt/@Model.bestAvalableTshirts.ToArray()[0].id_in_category">
+                                <img src="~/upload/models/@(Model.bestAvalableTshirts.ToArray()[0].item_type + Model.bestAvalableTshirts.ToArray()[0].id_in_category).png">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="tile-small bg-green custom_box" data-role="tile">
+                        <div class="tile-content iconic">
+                            <a href="~/editor/viewtshirt/@Model.bestAvalableTshirts.ToArray()[1].id_in_category">
+                                <img src="~/upload/models/@(Model.bestAvalableTshirts.ToArray()[1].item_type + Model.bestAvalableTshirts.ToArray()[1].id_in_category).png">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="tile-small bg-red custom_box" data-role="tile">
+                        <div class="tile-content iconic">
+                            <a href="~/editor/viewtshirt/@Model.bestAvalableTshirts.ToArray()[2].id_in_category">
+                                <img src="~/upload/models/@(Model.bestAvalableTshirts.ToArray()[2].item_type + Model.bestAvalableTshirts.ToArray()[2].id_in_category).png">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="tile-small bg-orange custom_box" data-role="tile">
+                        <div class="tile-content iconic">
+                            <a href="~/editor/viewtshirt/@Model.bestAvalableTshirts.ToArray()[3].id_in_category">
+                                <img src="~/upload/models/@(Model.bestAvalableTshirts.ToArray()[3].item_type + Model.bestAvalableTshirts.ToArray()[3].id_in_category).png">
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+                <a href="~/Editor/tshirt">
+                    <div class="tile-wide bg-green fg-white custom_box" data-role="tile">
+                        <div class="tile-content iconic">
+                            <img src="~/img/tshirt/title_icons/retro-games-colored-03-512.png" class="icon">
+                        </div>
+                        <div class="tile-label">Create Design of T-Shirt</div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="tile-group double">
+                <span class="tile-group-title">Other</span>
+                <div class="tile-container">
+                    <div class="tile bg-teal fg-white" data-role="tile">
+                        <div class="tile-content iconic">
+                            <span class="icon mif-pencil"></span>
+                        </div>
+                        <span class="tile-label">Editor</span>
+                    </div>
+                    <div class="tile bg-darkGreen fg-white" data-role="tile">
+                        <div class="tile-content iconic">
+                            <span class="icon mif-shopping-basket"></span>
+                        </div>
+                        <span class="tile-label">Store</span>
+                    </div>
+                    <div class="tile bg-cyan fg-white" data-role="tile">
+                        <div class="tile-content iconic">
+                            <span class="icon mif-skype"></span>
+                        </div>
+                        <div class="tile-label">Skype</div>
+                    </div>
+                    <div class="tile bg-darkBlue fg-white" data-role="tile">
+                        <div class="tile-content iconic">
+                            <span class="icon mif-cloud"></span>
+                        </div>
+                        <span class="tile-label">OneDrive</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>

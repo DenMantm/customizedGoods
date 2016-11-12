@@ -1,0 +1,81 @@
+﻿@model IEnumerable<PluralApp.Models.EditorModel>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    @Html.Partial("/Views/Shared/Head.cshtml")
+
+    @*custom style just for this page*@
+    <link rel="stylesheet" href="~/c_css/editor.css"/>
+</head>
+<body>
+    <h1>Editor</h1>
+    <img src="~/img/tshirt/tshirt_pink.png" width="400" height="400" id="base" style="display:none">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <canvas id="c" width="400" height="400"></canvas>
+            </div>
+            <div class="col-md-3">
+                <div id="objectPanel">
+                    <h2>Object Panel</h2>
+                    <hr />
+                    <div class="popover marker-on-left bg-blue fg-white">
+                        <img src="img/icon.png" id="my-image" style="width:40px;height:40px ;float:left; margin-top: -10px;">
+                        <div class="fg-white" style="float:left">Image element</div>
+                        
+                        <button class="btn btn-default text-delete-btn btn-danger delete" type="button" title="" data-original-title="Удалить"><i class="glyphicon glyphicon-remove glyphicon-white"></i></button>
+                    </div>
+                    <br/>
+                    <div class="popover marker-on-left bg-blue fg-white add_text">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        <div class="fg-white" style="float:right">Add Text</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+
+
+    <script>
+        var canvas = new fabric.Canvas('c');
+
+
+
+
+                    var imgElement = document.getElementById('my-image');
+            var imgInstance = new fabric.Image(imgElement, {
+              left: 100,
+              top: 100,
+              angle: 30,
+              opacity: 1.0
+            });
+
+                                var imgElement = document.getElementById('base');
+            var base = new fabric.Image(imgElement, {
+              left: 0,
+              top: 0,
+              angle: 0,
+              opacity: 1.0
+            });
+
+            var comicSansText = new fabric.IText("I'm in Comic Sans", {
+            fontFamily: 'Comic Sans'
+                });
+
+            base.set('selectable', false); // make object unselectable
+            
+
+
+            canvas.add(base);
+            canvas.add(imgInstance);
+            canvas.add(comicSansText);
+            //canvas.remove(imgInstance);
+
+    </script>
+
+</body>
+</html>

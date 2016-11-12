@@ -1,0 +1,126 @@
+﻿@model PluralApp.Models.EditorModel
+
+
+            <script>
+        var canvas = new fabric.Canvas('c');
+
+
+            //var imgElement = document.getElementById('my-image');
+            //var imgInstance = new fabric.Image(imgElement, {
+            //  left: 100,
+            //  top: 100,
+            //  angle: 30,
+            //  opacity: 1.0
+            //});
+
+
+            //This is main base element
+            var imgElement = document.getElementById('base');
+            var base = new fabric.Image(imgElement, {
+              left: 0,
+              top: 0,
+              angle: 0,
+              opacity: 1.0,
+              selectable: false
+
+            });
+
+            var comicSansText = new fabric.IText("I'm in Comic Sans", {
+            fontFamily: '"Palatino Linotype", "Book Antiqua", Palatino, serif'
+                });
+
+            //base.set('selectable', false); // make object unselectable
+
+
+
+            canvas.add(base);
+            //canvas.add(imgInstance);
+            //canvas.add(comicSansText);
+            //canvas.remove(imgInstance);
+
+
+
+            //UPLOADING IMAGE TO THE SERVER
+
+
+            $("#upload").click(function (evt) {
+        var fileUpload = $("#files").get(0);
+        var files = fileUpload.files;
+        var data = new FormData();
+        for (var i = 0; i < files.length ; i++) {
+            data.append(files[i].name, files[i]);
+        }
+        $.ajax({
+            type: "POST",
+            url: "/UploadFile/UploadFilesAjax",
+            contentType: false,
+            processData: false,
+            data: data,
+            success: function (message) {
+
+              //  $('#last_images_upload').prepend('<img id="xx" src='+message+' />');
+              //var imgElement = document.getElementById('xx');
+
+                fabric.Image.fromURL(message, function (oImg) {
+             //oImg.set('left', PosX).set('top',PosY);
+             canvas.add(oImg);
+             canvas.renderAll();
+        }, {"left": 100, "top": 100, "height": 100, "width": 100});
+            $('#myModal').modal();
+            },
+            error: function () {
+                alert("There was error uploading files!");
+            }
+        });
+    });
+
+
+        //SAVING MODEL TO THE SERVER
+        var test;
+                $("#saveModel").click(function (evt) {
+
+        var data = new FormData();
+        var canvasData = canvas.toDataURL("image/png");
+        canvasData = canvasData.replace('data:image/png;base64,', '');
+            data.append('byteImage', canvasData);
+
+
+        //adding necesarry information
+
+        data.append('item_model_json', JSON.stringify(canvas.toObject()));
+
+        //getting from the model item type
+        data.append('item_type','@Model.itemType')
+        data.append('item_color',baseColor)
+        //this is temporary hardcoded
+
+        console.log(data);
+
+        $.ajax({
+            type: "POST",
+            url: "/SaveModel/SaveModel",
+            contentType: false,
+            processData: false,
+            data: data,
+            success: function (message) {
+            test = message;
+            console.log(message);
+            },
+            error: function () {
+                alert("There was error uploading files!");
+            }
+        });
+    });
+
+
+            </script>
+    @if (Model.editFlag)
+    {
+        <script>
+                        //Loading all necesarry information from the model
+                        model_object = JSON.parse("@Model.itemModel.item_model_json".replace(/&quot;/g,'"'));
+
+
+                        editor_loadObject();
+        </script>
+    }
