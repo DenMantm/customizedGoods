@@ -57,12 +57,12 @@ namespace PluralApp
             }
             else {
                 //handle errors in production envoirment, when exception redirect
-                app.UseExceptionHandler(new ExceptionHandlerOptions {
+                //app.UseExceptionHandler(new ExceptionHandlerOptions {
 
-                    ExceptionHandlingPath = "/error"
+                //    ExceptionHandlingPath = "/error"
 
-                });
-
+                //});
+                app.UseDeveloperExceptionPage();
             }
             //this would serve default files
             //app.UseDefaultFiles();

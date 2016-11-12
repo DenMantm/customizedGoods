@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdUfOaavOOUKbncHQ0Ua1MAAAAAACAAAAAAAQZgAAAAEAACAAAACZ5rljU/hy+KAae0JlYxEqBG9moG0+FoUOoMFg2U1VdgAAAAAOgAAAAAIAACAAAADAm8bP2V0V2XlQmqMBE2ECZ+GKT/M1nT22d70ZZoyLI4AAAADTmHSSOVnCLkUmL0/53wrIFwi9h5iNdxl4Ax7LR1AimvRJIirmEr8q/BZaK4FVx76iodi+ZU5GH06r4LO+xtIoaK0Yc6WTyqSO/+CpuubUrJhbrk3WR2nCh7KmfRRTt81F0buY/eiVNhPyXcrSR9cp0a3s8p0Cd8DgDAy9kQfxjkAAAADKWUOfHdzmzg+b7+pmsRMCiWgGM9KK6X6ouBjVnp6/QFWFQfkRWty+mLIMjmCgnyQAYsynCyo7PLAN5WR+xT0L</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="Azure">
+      <Value>Server=tcp:ds-ds1.database.windows.net,1433;Initial Catalog=DB1;Persist Security Info=False;User ID=denmantm;Password=@password123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
