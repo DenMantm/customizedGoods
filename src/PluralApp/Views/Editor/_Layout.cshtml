@@ -256,12 +256,10 @@
 
 
         <div class="tile-group double">
-            <span class="tile-group-title">Create a custon Cup!</span>
+            <span class="tile-group-title">@ViewBag.DescriptionTitle</span>
             <div class="tile-container">
                 <p>
-                    Custom printed cups are a great way to promote your business,
-                    organization or event! You can upload your own artwork or create
-                    custom designs using images and fonts. Creating personalized cups has never been easier!
+                    @ViewBag.DescriptionText
                 </p>
 
 
@@ -287,9 +285,9 @@
         </div>
 
 
-        <img src="~/img/cup/cup_1.png" width="450" height="450" id="base" style="display:none">
+        
         <div class="tile-group">
-            <span class="tile-group-title">Cup</span>
+            <span class="tile-group-title">Editor</span>
             <div class="tile-container">
                 <div class="canvas_wrapper">
                     <canvas id="c" width="450" height="450"></canvas>
@@ -386,6 +384,7 @@
         </div>
 
 
+
         <div class="tile-group double">
             <span class="tile-group-title">Custom Cups</span>
             <div class="tile-container">
@@ -406,7 +405,7 @@
                         @foreach (var item in Model.bestAvalableCups)
                         {
 
-                            <a href="~/editor/viewcup/@item.id_in_category"><div class="live-slide"><img src="~/upload/models/@(item.item_type+item.id_in_category).png" data-role="fitImage" data-format="fill"></div></a>
+                            <a href="~/editor/viewcup/@item.id_in_category"><div class="live-slide"><img src="~/upload/models/@(item.item_type + item.id_in_category).png" data-role="fitImage" data-format="fill"></div></a>
                         }
 
                     </div>
@@ -414,110 +413,111 @@
                 </div>
 
 
+                @for (int i = 0; i < Model.bestAvalableCups.ToArray().Count(); i++)
+                {
+                    @if (i == 4) { break; }
+                    <div class="tile-small bg-yellow custom_box" data-role="tile">
 
-                <div class="tile-small bg-yellow custom_box" data-role="tile">
+                        <div class="tile-content iconic">
+                            <a href="~/editor/viewcup/@Model.bestAvalableCups.ToArray()[i].id_in_category">
+                                <img src="~/upload/models/@(Model.bestAvalableCups.ToArray()[i].item_type + Model.bestAvalableCups.ToArray()[i].id_in_category).png">
+                            </a>
+                        </div>
 
-                    <div class="tile-content iconic">
-                        <a href="~/editor/viewcup/@Model.bestAvalableCups.ToArray()[0].id_in_category">
-                            <img src="~/upload/models/@(Model.bestAvalableCups.ToArray()[0].item_type + Model.bestAvalableCups.ToArray()[0].id_in_category).png">
-                        </a>
                     </div>
-
-                </div>
-
-                <div class="tile-small bg-green custom_box" data-role="tile">
-                    <div class="tile-content iconic">
-                        <a href="~/editor/viewcup/@Model.bestAvalableCups.ToArray()[1].id_in_category">
-                            <img src="~/upload/models/@(Model.bestAvalableCups.ToArray()[1].item_type + Model.bestAvalableCups.ToArray()[1].id_in_category).png">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="tile-small bg-amber custom_box" data-role="tile">
-                    <div class="tile-content iconic">
-                        <a href="~/editor/viewcup/@Model.bestAvalableCups.ToArray()[2].id_in_category">
-                            <img src="~/upload/models/@(Model.bestAvalableCups.ToArray()[2].item_type + Model.bestAvalableCups.ToArray()[2].id_in_category).png">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="tile-small bg-orange custom_box" data-role="tile">
-                    <div class="tile-content iconic">
-                        <a href="~/editor/viewcup/@Model.bestAvalableCups.ToArray()[3].id_in_category">
-                            <img src="~/upload/models/@(Model.bestAvalableCups.ToArray()[3].item_type + Model.bestAvalableCups.ToArray()[3].id_in_category).png">
-                        </a>
-                    </div>
-                </div>
+                }
 
 
             </div>
         </div>
-
 
 
         <div class="tile-group double">
-            <span class="tile-group-title">Custom T-Shirts</span>
+            <span class="tile-group-title">Gift Cards</span>
             <div class="tile-container">
-
-
-                <div class="tile custom_box" data-role="tile">
+                <div class="tile" data-role="tile">
                     <div class="tile-content">
-
-
-                        @foreach (var item in Model.bestAvalableTshirts)
-                        {
-
-                            <a href="~/editor/viewtshirt/@item.id_in_category"><div class="live-slide"><img src="~/upload/models/@(item.item_type+item.id_in_category).png" data-role="fitImage" data-format="fill"></div></a>
-
-                        }
-
+                        <img src="" data-role="fitImage" data-format="square">
                     </div>
                 </div>
-
-
-                <div class="tile-small bg-darkBlue custom_box" data-role="tile">
+                <div class="tile-small" data-role="tile">
+                    <div class="tile-content">
+                        <img src="../images/Battlefield_4_Icon.png" data-role="fitImage" data-format="square">
+                    </div>
+                </div>
+                <div class="tile-small" data-role="tile">
+                    <div class="tile-content">
+                        <img src="../images/Crysis-2-icon.png" data-role="fitImage" data-format="square" data-frame-color="bg-steel">
+                    </div>
+                </div>
+                <div class="tile-small" data-role="tile">
+                    <div class="tile-content">
+                        <img src="../images/WorldofTanks.png" data-role="fitImage" data-format="square" data-frame-color="bg-dark">
+                    </div>
+                </div>
+                <div class="tile-small" data-role="tile">
+                    <div class="tile-content">
+                        <img src="../images/halo.jpg" data-role="fitImage" data-format="square">
+                    </div>
+                </div>
+                <div class="tile-wide bg-blue fg-white" data-role="tile">
                     <div class="tile-content iconic">
-                        <a href="~/editor/viewtshirt/@Model.bestAvalableTshirts.ToArray()[0].id_in_category">
-                            <img src="~/upload/models/@(Model.bestAvalableTshirts.ToArray()[0].item_type + Model.bestAvalableTshirts.ToArray()[0].id_in_category).png">
-                        </a>
+                        <img src="~/img/tshirt/title_icons/gift_card2.png" class="icon">
                     </div>
+                    <div class="tile-label">Make it yourself!</div>
                 </div>
-
-                <div class="tile-small bg-green custom_box" data-role="tile">
-                    <div class="tile-content iconic">
-                        <a href="~/editor/viewtshirt/@Model.bestAvalableTshirts.ToArray()[1].id_in_category">
-                            <img src="~/upload/models/@(Model.bestAvalableTshirts.ToArray()[1].item_type + Model.bestAvalableTshirts.ToArray()[1].id_in_category).png">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="tile-small bg-red custom_box" data-role="tile">
-                    <div class="tile-content iconic">
-                        <a href="~/editor/viewtshirt/@Model.bestAvalableTshirts.ToArray()[2].id_in_category">
-                            <img src="~/upload/models/@(Model.bestAvalableTshirts.ToArray()[2].item_type + Model.bestAvalableTshirts.ToArray()[2].id_in_category).png">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="tile-small bg-orange custom_box" data-role="tile">
-                    <div class="tile-content iconic">
-                        <a href="~/editor/viewtshirt/@Model.bestAvalableTshirts.ToArray()[3].id_in_category">
-                            <img src="~/upload/models/@(Model.bestAvalableTshirts.ToArray()[3].item_type + Model.bestAvalableTshirts.ToArray()[3].id_in_category).png">
-                        </a>
-                    </div>
-                </div>
-
-
             </div>
-            <a href="~/Editor/tshirt">
-                <div class="tile-wide bg-green fg-white custom_box" data-role="tile">
-                    <div class="tile-content iconic">
-                        <img src="~/img/tshirt/title_icons/retro-games-colored-03-512.png" class="icon">
-                    </div>
-                    <div class="tile-label">Create Design of T-Shirt</div>
-                </div>
-            </a>
         </div>
+
+        @if (Model.bestAvalableTshirts != null)
+        {
+            <div class="tile-group double">
+                <span class="tile-group-title">Custom T-Shirts</span>
+                <div class="tile-container">
+
+
+                    <div class="tile custom_box" data-role="tile">
+                        <div class="tile-content">
+
+
+                            @foreach (var item in Model.bestAvalableTshirts)
+                            {
+
+                                <a href="~/editor/viewtshirt/@item.id_in_category"><div class="live-slide"><img src="~/upload/models/@(item.item_type + item.id_in_category).png" data-role="fitImage" data-format="fill"></div></a>
+
+                            }
+
+                        </div>
+                    </div>
+
+                    @for (int i = 0; i < Model.bestAvalableTshirts.ToArray().Count(); i++)
+                    {
+                        @if (i == 4) { break; }
+
+                        <div class="tile-small bg-darkBlue custom_box" data-role="tile">
+                            <div class="tile-content iconic">
+                                <a href="~/editor/viewtshirt/@Model.bestAvalableTshirts.ToArray()[0].id_in_category">
+                                    <img src="~/upload/models/@(Model.bestAvalableTshirts.ToArray()[0].item_type + Model.bestAvalableTshirts.ToArray()[0].id_in_category).png">
+                                </a>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+                <a href="~/Editor/tshirt">
+                    <div class="tile-wide bg-green fg-white custom_box" data-role="tile">
+                        <div class="tile-content iconic">
+                            <img src="~/img/tshirt/title_icons/retro-games-colored-03-512.png" class="icon">
+                        </div>
+                        <div class="tile-label">Create Design of T-Shirt</div>
+                    </div>
+                </a>
+            </div>
+
+        }
+
+ 
 
     </div>
 

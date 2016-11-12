@@ -1,10 +1,18 @@
-﻿@model PluralApp.Models.EditorModel
+﻿
+@{
+    ViewBag.Title = "T-Shirt Deitor Section";
+    ViewBag.EditorTitle = "Customized Goods Portal / T-Shirts";
+    ViewBag.DescriptionTitle = "Creating Custon T-Shirt";
+    ViewBag.DescriptionText = "Browse through the range of T-shirt designs from our Community,"+
+                               "and discover fresh and clever T-shirts to stand out from the crowd."+
+                               "Get inspired by thousands of T - shirt designs in our Marketplace,"+
+                               "and find fun designs and witty slogans for T - shirts, hoodies,"+
+                              " jackets, caps, smartphone covers and more.";
+            }
 
-
+<img src="~/img/tshirt/tshirt_1024x1024.png" width="450" height="450" id="base" style="display:none">
             <script>
         var canvas = new fabric.Canvas('c');
-
-
             //var imgElement = document.getElementById('my-image');
             //var imgInstance = new fabric.Image(imgElement, {
             //  left: 100,
@@ -12,8 +20,6 @@
             //  angle: 30,
             //  opacity: 1.0
             //});
-
-
             //This is main base element
             var imgElement = document.getElementById('base');
             var base = new fabric.Image(imgElement, {
@@ -112,7 +118,7 @@
         });
     });
 
-
+                setTimeout(function () { canvas.renderAll(); }, 100);
             </script>
     @if (Model.editFlag)
     {
