@@ -41,7 +41,7 @@ namespace PluralApp
 
             services.AddScoped<IItemData, SqlItemData>();
             //configuring db
-            services.AddDbContext<ITemsProjectDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("default")));
+            services.AddDbContext<ITemsProjectDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Azure")));
 
         }
 

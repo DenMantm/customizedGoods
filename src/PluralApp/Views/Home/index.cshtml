@@ -254,7 +254,7 @@
                             @foreach (var item in Model.bestAvalableCups)
                             {
 
-                                <a href="~/editor/viewcup/@item.id_in_category"><div class="live-slide"><img src="~/upload/models/@(item.item_type+item.id_in_category).png" data-role="fitImage" data-format="fill"></div></a>
+                                <a href="~/editor/viewcup/@item.id_in_category"><div class="live-slide"><img src="~/upload/models/@(item.item_type + item.id_in_category).png" data-role="fitImage" data-format="fill"></div></a>
                             }
 
                         </div>
@@ -262,41 +262,19 @@
                     </div>
 
 
-
-
+                   @for (int i = 0; i < Model.bestAvalableCups.ToArray().Count(); i++)
+                   {
+                       @if(i == 4) { break; }
                     <div class="tile-small bg-yellow custom_box" data-role="tile">
 
                         <div class="tile-content iconic">
-                            <a href="~/editor/viewcup/@Model.bestAvalableCups.ToArray()[0].id_in_category">
-                                <img src="~/upload/models/@(Model.bestAvalableCups.ToArray()[0].item_type + Model.bestAvalableCups.ToArray()[0].id_in_category).png">
+                            <a href="~/editor/viewcup/@Model.bestAvalableCups.ToArray()[i].id_in_category">
+                                <img src="~/upload/models/@(Model.bestAvalableCups.ToArray()[i].item_type + Model.bestAvalableCups.ToArray()[i].id_in_category).png">
                             </a>
                         </div>
 
                     </div>
-
-                    <div class="tile-small bg-green custom_box" data-role="tile">
-                        <div class="tile-content iconic">
-                            <a href="~/editor/viewcup/@Model.bestAvalableCups.ToArray()[1].id_in_category">
-                                <img src="~/upload/models/@(Model.bestAvalableCups.ToArray()[1].item_type + Model.bestAvalableCups.ToArray()[1].id_in_category).png">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="tile-small bg-amber custom_box" data-role="tile">
-                        <div class="tile-content iconic">
-                            <a href="~/editor/viewcup/@Model.bestAvalableCups.ToArray()[2].id_in_category">
-                                <img src="~/upload/models/@(Model.bestAvalableCups.ToArray()[2].item_type + Model.bestAvalableCups.ToArray()[2].id_in_category).png">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="tile-small bg-orange custom_box" data-role="tile">
-                        <div class="tile-content iconic">
-                            <a href="~/editor/viewcup/@Model.bestAvalableCups.ToArray()[3].id_in_category">
-                                <img src="~/upload/models/@(Model.bestAvalableCups.ToArray()[3].item_type + Model.bestAvalableCups.ToArray()[3].id_in_category).png">
-                            </a>
-                        </div>
-                    </div>
+                   }
 
 
                 </div>
@@ -340,7 +318,8 @@
             </div>
         </div>
 
-
+        @if (Model.bestAvalableTshirts != null)
+        {
             <div class="tile-group double">
                 <span class="tile-group-title">Custom T-Shirts</span>
                 <div class="tile-container">
@@ -353,13 +332,16 @@
                             @foreach (var item in Model.bestAvalableTshirts)
                             {
 
-                                <a href="~/editor/viewtshirt/@item.id_in_category"><div class="live-slide"><img src="~/upload/models/@(item.item_type+item.id_in_category).png" data-role="fitImage" data-format="fill"></div></a>
+                                <a href="~/editor/viewtshirt/@item.id_in_category"><div class="live-slide"><img src="~/upload/models/@(item.item_type + item.id_in_category).png" data-role="fitImage" data-format="fill"></div></a>
 
                             }
 
                         </div>
                     </div>
 
+@for (int i = 0; i < Model.bestAvalableTshirts.ToArray().Count(); i++)
+{
+    @if (i == 4) { break; }
 
                     <div class="tile-small bg-darkBlue custom_box" data-role="tile">
                         <div class="tile-content iconic">
@@ -368,30 +350,7 @@
                             </a>
                         </div>
                     </div>
-
-                    <div class="tile-small bg-green custom_box" data-role="tile">
-                        <div class="tile-content iconic">
-                            <a href="~/editor/viewtshirt/@Model.bestAvalableTshirts.ToArray()[1].id_in_category">
-                                <img src="~/upload/models/@(Model.bestAvalableTshirts.ToArray()[1].item_type + Model.bestAvalableTshirts.ToArray()[1].id_in_category).png">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="tile-small bg-red custom_box" data-role="tile">
-                        <div class="tile-content iconic">
-                            <a href="~/editor/viewtshirt/@Model.bestAvalableTshirts.ToArray()[2].id_in_category">
-                                <img src="~/upload/models/@(Model.bestAvalableTshirts.ToArray()[2].item_type + Model.bestAvalableTshirts.ToArray()[2].id_in_category).png">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="tile-small bg-orange custom_box" data-role="tile">
-                        <div class="tile-content iconic">
-                            <a href="~/editor/viewtshirt/@Model.bestAvalableTshirts.ToArray()[3].id_in_category">
-                                <img src="~/upload/models/@(Model.bestAvalableTshirts.ToArray()[3].item_type + Model.bestAvalableTshirts.ToArray()[3].id_in_category).png">
-                            </a>
-                        </div>
-                    </div>
+}
 
 
                 </div>
@@ -405,7 +364,7 @@
                 </a>
             </div>
 
-
+        }
             <div class="tile-group double">
                 <span class="tile-group-title">Other</span>
                 <div class="tile-container">

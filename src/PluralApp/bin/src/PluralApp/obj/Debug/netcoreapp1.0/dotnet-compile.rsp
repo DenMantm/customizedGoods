@@ -1,5 +1,5 @@
---temp-output:C:\Users\Ernestukas\Documents\Visual Studio 2015\Projects\PluralApp\src\PluralApp\obj\Debug\netcoreapp1.0\
---out:C:\Users\Ernestukas\Documents\Visual Studio 2015\Projects\PluralApp\src\PluralApp\bin\Debug\netcoreapp1.0\PluralApp.dll
+--temp-output:C:\Users\Ernestukas\Documents\Visual Studio 2015\Projects\PluralApp\src\PluralApp\bin\src\PluralApp\obj\Debug\netcoreapp1.0\
+--out:C:\Users\Ernestukas\Documents\Visual Studio 2015\Projects\PluralApp\src\PluralApp\bin\src\PluralApp\bin\Debug\netcoreapp1.0\PluralApp.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -57,7 +57,9 @@
 --reference:C:\Users\Ernestukas\.nuget\packages\Microsoft.CSharp\4.0.1\ref\netstandard1.0\Microsoft.CSharp.dll
 --reference:C:\Users\Ernestukas\.nuget\packages\Microsoft.DotNet.InternalAbstractions\1.0.0\lib\netstandard1.3\Microsoft.DotNet.InternalAbstractions.dll
 --reference:C:\Users\Ernestukas\.nuget\packages\Microsoft.EntityFrameworkCore\1.0.1\lib\netstandard1.3\Microsoft.EntityFrameworkCore.dll
+--reference:C:\Users\Ernestukas\.nuget\packages\Microsoft.EntityFrameworkCore.Design\1.0.1\lib\netstandard1.3\Microsoft.EntityFrameworkCore.Design.dll
 --reference:C:\Users\Ernestukas\.nuget\packages\Microsoft.EntityFrameworkCore.Relational\1.0.1\lib\netstandard1.3\Microsoft.EntityFrameworkCore.Relational.dll
+--reference:C:\Users\Ernestukas\.nuget\packages\Microsoft.EntityFrameworkCore.Relational.Design\1.0.1\lib\netstandard1.3\Microsoft.EntityFrameworkCore.Relational.Design.dll
 --reference:C:\Users\Ernestukas\.nuget\packages\Microsoft.EntityFrameworkCore.SqlServer\1.0.1\lib\netstandard1.3\Microsoft.EntityFrameworkCore.SqlServer.dll
 --reference:C:\Users\Ernestukas\.nuget\packages\Microsoft.Extensions.Caching.Abstractions\1.0.0\lib\netstandard1.0\Microsoft.Extensions.Caching.Abstractions.dll
 --reference:C:\Users\Ernestukas\.nuget\packages\Microsoft.Extensions.Caching.Memory\1.0.0\lib\netstandard1.3\Microsoft.Extensions.Caching.Memory.dll
@@ -174,7 +176,7 @@
 --reference:C:\Users\Ernestukas\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\Ernestukas\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Ernestukas\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
---resource:"C:\Users\Ernestukas\Documents\Visual Studio 2015\Projects\PluralApp\src\PluralApp\obj\Debug\netcoreapp1.0\PluralAppdotnet-compile.deps.json",PluralApp.deps.json
+--resource:"C:\Users\Ernestukas\Documents\Visual Studio 2015\Projects\PluralApp\src\PluralApp\bin\src\PluralApp\obj\Debug\netcoreapp1.0\PluralAppdotnet-compile.deps.json",PluralApp.deps.json
 C:\Users\Ernestukas\Documents\Visual Studio 2015\Projects\PluralApp\src\PluralApp\Image.cs
 C:\Users\Ernestukas\Documents\Visual Studio 2015\Projects\PluralApp\src\PluralApp\Items.cs
 C:\Users\Ernestukas\Documents\Visual Studio 2015\Projects\PluralApp\src\PluralApp\Program.cs
