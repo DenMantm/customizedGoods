@@ -16,7 +16,7 @@ namespace PluralApp.Models
         public ItemModel itemModel { get; set; }
         public IEnumerable<ItemModel> bestAvalableCups { get; set; }
         public IEnumerable<ItemModel> bestAvalableTshirts { get; set; }
-        public IEnumerable<ItemModel> bestAvalableCards { get; set; }
+        public IEnumerable<ItemModel> bestAvalableHats { get; set; }
         public IEnumerable<ItemModel> userCreatedItems { get; set; }
         public bool editFlag { get; set; }
     }

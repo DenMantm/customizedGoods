@@ -45,10 +45,10 @@ namespace PluralApp.Services
 
 
             }
-            else if(item.item_type == "card"){
+            else if(item.item_type == "hat"){
                 //incrementing field
                 var fileRecord = (from r in _context.ItemCounters where r.id == 1 select r).Single();
-                id = fileRecord.card++;
+                id = fileRecord.hat++;
                 _context.SaveChanges();
 
             }

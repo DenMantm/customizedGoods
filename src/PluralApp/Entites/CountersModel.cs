@@ -10,6 +10,6 @@ namespace PluralApp.Entites
         public int id { get; set; }
         public int tshirt { get; set; }
         public int cup { get; set; }
-        public int card { get; set; }
+        public int hat { get; set; }
     }
 }

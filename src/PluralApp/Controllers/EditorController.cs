@@ -56,7 +56,7 @@ namespace PluralApp.Controllers
 
             model.bestAvalableTshirts = (from r in _itemData.GetAll() where r.item_type == "t-shirt" select r);
             model.bestAvalableCups = (from r in _itemData.GetAll() where r.item_type == "cup" select r);
-            model.bestAvalableCards = (from r in _itemData.GetAll() where r.item_type == "card" select r);
+            model.bestAvalableHats = (from r in _itemData.GetAll() where r.item_type == "card" select r);
 
 
             return View(model);
@@ -80,7 +80,7 @@ namespace PluralApp.Controllers
 
             model.bestAvalableTshirts = (from r in _itemData.GetAll() where r.item_type == "t-shirt" select r);
             model.bestAvalableCups = (from r in _itemData.GetAll() where r.item_type == "cup" select r);
-            model.bestAvalableCards = (from r in _itemData.GetAll() where r.item_type == "card" select r);
+            model.bestAvalableHats = (from r in _itemData.GetAll() where r.item_type == "card" select r);
 
                 return View("Tshirt",model);
             
@@ -103,7 +103,7 @@ namespace PluralApp.Controllers
 
             model.bestAvalableTshirts = (from r in _itemData.GetAll() where r.item_type == "t-shirt" select r);
             model.bestAvalableCups = (from r in _itemData.GetAll() where r.item_type == "cup" select r);
-            model.bestAvalableCards = (from r in _itemData.GetAll() where r.item_type == "card" select r);
+            model.bestAvalableHats = (from r in _itemData.GetAll() where r.item_type == "card" select r);
 
 
             return View(model);
@@ -128,12 +128,66 @@ namespace PluralApp.Controllers
 
             model.bestAvalableTshirts = (from r in _itemData.GetAll() where r.item_type == "t-shirt" select r);
             model.bestAvalableCups = (from r in _itemData.GetAll() where r.item_type == "cup" select r);
-            model.bestAvalableCards = (from r in _itemData.GetAll() where r.item_type == "card" select r);
+            model.bestAvalableHats = (from r in _itemData.GetAll() where r.item_type == "hat" select r);
 
             return View("cup", model);
 
 
         }
+
+
+
+        //Hat
+
+
+
+
+        public IActionResult Hat()
+        {
+            EditorModel model = new EditorModel
+            {
+                fonts = fonts,
+                colours = colours,
+                colours_base = colours_base,
+                itemType = "hat"
+            };
+
+            model.bestAvalableTshirts = (from r in _itemData.GetAll() where r.item_type == "t-shirt" select r);
+            model.bestAvalableCups = (from r in _itemData.GetAll() where r.item_type == "cup" select r);
+            model.bestAvalableHats = (from r in _itemData.GetAll() where r.item_type == "hat" select r);
+
+
+            return View(model);
+
+        }
+        public IActionResult viewHat(int id)
+        {
+
+            //here wee need to get item from the database with the id of ->
+            ItemModel itemModel = _itemData.GetCup(id);
+
+
+            EditorModel model = new EditorModel
+            {
+                fonts = fonts,
+                colours = colours,
+                colours_base = colours_base,
+                itemType = "hat",
+                itemModel = itemModel,
+                editFlag = true
+            };
+
+            model.bestAvalableTshirts = (from r in _itemData.GetAll() where r.item_type == "t-shirt" select r);
+            model.bestAvalableCups = (from r in _itemData.GetAll() where r.item_type == "cup" select r);
+            model.bestAvalableHats = (from r in _itemData.GetAll() where r.item_type == "hat" select r);
+
+            return View("hat", model);
+
+
+        }
+
+
+
 
 
     }
