@@ -8,9 +8,10 @@ using PluralApp.Entites;
 namespace PluralApp.Migrations
 {
     [DbContext(typeof(ITemsProjectDbContext))]
-    partial class ITemsProjectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161113151206_changing schema")]
+    partial class changingschema
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")

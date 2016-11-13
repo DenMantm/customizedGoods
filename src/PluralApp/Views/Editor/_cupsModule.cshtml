@@ -1,0 +1,46 @@
+﻿@model IEnumerable<PluralApp.Entites.ItemModel>
+
+<div class="tile-group double">
+    <span class="tile-group-title">Custom Cups</span>
+    <div class="tile-container">
+        <a href="~/Editor/cup">
+            <div class="tile-wide bg-green fg-white custom_box" data-role="tile">
+                <div class="tile-content iconic">
+                    <img src="~/img/cup/espresso_cup-512.png" class="icon">
+
+                </div>
+                <div class="tile-label">Create your own design of the Cup</div>
+            </div>
+        </a>
+
+        <div class="tile custom_box" data-role="tile" data-role="tile" data-effect="slideUpDown">
+            <div class="tile-content">
+
+
+                @foreach (var item in Model)
+                            {
+
+                    <a href="~/editor/viewcup/@item.id_in_category"><div class="live-slide"><img src="~/upload/models/@(item.item_type + item.id_in_category).png" data-role="fitImage" data-format="fill"></div></a>
+                            }
+
+            </div>
+            <div class="tile-label">Cups</div>
+        </div>
+
+
+        @for (int i = 0; i < Model.ToArray().Count(); i++)
+                   {
+            @if(i == 4) { break; }
+            <div class="tile-small bg-yellow custom_box" data-role="tile">
+
+                <div class="tile-content iconic">
+                    <a href="~/editor/viewcup/@Model.ToArray()[i].id_in_category">
+                        <img src="~/upload/models/@(Model.ToArray()[i].item_type + Model.ToArray()[i].id_in_category).png">
+                    </a>
+                </div>
+
+            </div>
+                   }
+
+    </div>
+</div>

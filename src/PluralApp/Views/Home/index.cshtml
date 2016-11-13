@@ -157,6 +157,21 @@
 
     </script>
 
+    <style>
+
+   .addBackground{
+     background-image: url(/img/background/background-image.jpg);
+     background-attachment:fixed;
+     position:absolute;
+     width:100%;
+     height:100%;
+     opacity:0.2;
+     top:0;
+     z-index:-1;
+}
+    </style>
+
+
 </head>
 <body style="overflow-y: hidden;">
     <div data-role="charm" id="charmSearch">
@@ -165,12 +180,11 @@
         <br />
         <div class="input-control text full-size">
             <label>
-                <span class="dropdown-toggle drop-marker-light">Anywhere</span>
+                <span class="dropdown-toggle drop-marker-light">T-Shirts</span>
                 <ul class="d-menu" data-role="dropdown">
-                    <li><a onclick="setSearchPlace(this)">Anywhere</a></li>
-                    <li><a onclick="setSearchPlace(this)">Options</a></li>
-                    <li><a onclick="setSearchPlace(this)">Files</a></li>
-                    <li><a onclick="setSearchPlace(this)">Internet</a></li>
+                    <li><a onclick="setSearchPlace(this)">T-Shirts</a></li>
+                    <li><a onclick="setSearchPlace(this)">Hats</a></li>
+                    <li><a onclick="setSearchPlace(this)">Cups</a></li>
                 </ul>
             </label>
             <input type="text">
@@ -207,8 +221,9 @@
         </div>
     </div>
 
-    <div class="tile-area tile-area-scheme-dark fg-white" style="height: 100%; max-height: 100% !important;">
-        <h1 class="tile-area-title">Customized Goods Portal</h1>
+    <div class="tile-area tile-area-scheme-dark fg-white background" style="height: 100%; max-height: 100% !important;z-index:1;">
+        <div class="addBackground"></div>
+        <h1 class="tile-area-title">Customized Goods Portal / Editor</h1>
         <div class="tile-area-controls">
             <button class="image-button icon-right bg-transparent fg-white bg-grayDark bg-hover-dark no-border"><span class="sub-header no-margin text-light">Deniss Strods</span> <span class="icon mif-user"></span></button>
             <button class="square-button bg-transparent fg-white bg-grayDark bg-hover-dark no-border" onclick="showCharms('#charmSearch')"><span class="mif-search"></span></button>
@@ -232,168 +247,22 @@
             </div>
 
 
+        @*HATS*@
 
+        @Html.Partial("/Views/Editor/_hatsModule.cshtml",Model.bestAvalableHats)
 
-            <div class="tile-group double">
-                <span class="tile-group-title">Custom Cups</span>
-                <div class="tile-container">
-                    <a href="~/Editor/cup">
-                        <div class="tile-wide bg-green fg-white custom_box" data-role="tile">
-                            <div class="tile-content iconic">
-                                <img src="~/img/cup/espresso_cup-512.png" class="icon">
+        @*CUPS*@
 
-                            </div>
-                            <div class="tile-label">Create your own design of the Cup</div>
-                        </div>
-                    </a>
+        @Html.Partial("/Views/Editor/_cupsModule.cshtml", Model.bestAvalableCups)
 
-                    <div class="tile custom_box" data-role="tile" data-role="tile" data-effect="slideUpDown">
-                        <div class="tile-content">
+        @*T-Shirts*@
 
+        @Html.Partial("/Views/Editor/_tshirtsModule.cshtml", Model.bestAvalableTshirts)
 
-                            @foreach (var item in Model.bestAvalableCups)
-                            {
+        @*Choices*@
 
-                                <a href="~/editor/viewcup/@item.id_in_category"><div class="live-slide"><img src="~/upload/models/@(item.item_type + item.id_in_category).png" data-role="fitImage" data-format="fill"></div></a>
-                            }
+        @Html.Partial("/Views/Editor/_choicesModule.cshtml")
 
-                        </div>
-                        <div class="tile-label">Cups</div>
-                    </div>
-
-
-                   @for (int i = 0; i < Model.bestAvalableCups.ToArray().Count(); i++)
-                   {
-                       @if(i == 4) { break; }
-                    <div class="tile-small bg-yellow custom_box" data-role="tile">
-
-                        <div class="tile-content iconic">
-                            <a href="~/editor/viewcup/@Model.bestAvalableCups.ToArray()[i].id_in_category">
-                                <img src="~/upload/models/@(Model.bestAvalableCups.ToArray()[i].item_type + Model.bestAvalableCups.ToArray()[i].id_in_category).png">
-                            </a>
-                        </div>
-
-                    </div>
-                   }
-
-
-                </div>
-            </div>
-
-
-        <div class="tile-group double">
-            <span class="tile-group-title">Custom hats</span>
-            <div class="tile-container">
-                <div class="tile" data-role="tile">
-                    <div class="tile-content">
-                        <img src="" data-role="fitImage" data-format="square">
-                    </div>
-                </div>
-                <div class="tile-small" data-role="tile">
-                    <div class="tile-content">
-                        <img src="../images/Battlefield_4_Icon.png" data-role="fitImage" data-format="square">
-                    </div>
-                </div>
-                <div class="tile-small" data-role="tile">
-                    <div class="tile-content">
-                        <img src="../images/Crysis-2-icon.png" data-role="fitImage" data-format="square" data-frame-color="bg-steel">
-                    </div>
-                </div>
-                <div class="tile-small" data-role="tile">
-                    <div class="tile-content">
-                        <img src="../images/WorldofTanks.png" data-role="fitImage" data-format="square" data-frame-color="bg-dark">
-                    </div>
-                </div>
-                <div class="tile-small" data-role="tile">
-                    <div class="tile-content">
-                        <img src="../images/halo.jpg" data-role="fitImage" data-format="square">
-                    </div>
-                </div>
-                <div class="tile-wide bg-blue fg-white" data-role="tile">
-                    <div class="tile-content iconic">
-                        <img src="~/img/tshirt/title_icons/gift_card2.png" class="icon">
-                    </div>
-                    <div class="tile-label">Make it yourself!</div>
-                </div>
-            </div>
-        </div>
-
-        @if (Model.bestAvalableTshirts != null)
-        {
-            <div class="tile-group double">
-                <span class="tile-group-title">Custom T-Shirts</span>
-                <div class="tile-container">
-
-
-                    <div class="tile custom_box" data-role="tile">
-                        <div class="tile-content">
-
-
-                            @foreach (var item in Model.bestAvalableTshirts)
-                            {
-
-                                <a href="~/editor/viewtshirt/@item.id_in_category"><div class="live-slide"><img src="~/upload/models/@(item.item_type + item.id_in_category).png" data-role="fitImage" data-format="fill"></div></a>
-
-                            }
-
-                        </div>
-                    </div>
-
-@for (int i = 0; i < Model.bestAvalableTshirts.ToArray().Count(); i++)
-{
-    @if (i == 4) { break; }
-
-                    <div class="tile-small bg-darkBlue custom_box" data-role="tile">
-                        <div class="tile-content iconic">
-                            <a href="~/editor/viewtshirt/@Model.bestAvalableTshirts.ToArray()[0].id_in_category">
-                                <img src="~/upload/models/@(Model.bestAvalableTshirts.ToArray()[0].item_type + Model.bestAvalableTshirts.ToArray()[0].id_in_category).png">
-                            </a>
-                        </div>
-                    </div>
-}
-
-
-                </div>
-                <a href="~/Editor/tshirt">
-                    <div class="tile-wide bg-green fg-white custom_box" data-role="tile">
-                        <div class="tile-content iconic">
-                            <img src="~/img/tshirt/title_icons/retro-games-colored-03-512.png" class="icon">
-                        </div>
-                        <div class="tile-label">Create Design of T-Shirt</div>
-                    </div>
-                </a>
-            </div>
-
-        }
-            <div class="tile-group double">
-                <span class="tile-group-title">Other</span>
-                <div class="tile-container">
-                    <div class="tile bg-teal fg-white" data-role="tile">
-                        <div class="tile-content iconic">
-                            <span class="icon mif-pencil"></span>
-                        </div>
-                        <span class="tile-label">Editor</span>
-                    </div>
-                    <div class="tile bg-darkGreen fg-white" data-role="tile">
-                        <div class="tile-content iconic">
-                            <span class="icon mif-shopping-basket"></span>
-                        </div>
-                        <span class="tile-label">Store</span>
-                    </div>
-                    <div class="tile bg-cyan fg-white" data-role="tile">
-                        <div class="tile-content iconic">
-                            <span class="icon mif-skype"></span>
-                        </div>
-                        <div class="tile-label">Skype</div>
-                    </div>
-                    <div class="tile bg-darkBlue fg-white" data-role="tile">
-                        <div class="tile-content iconic">
-                            <span class="icon mif-cloud"></span>
-                        </div>
-                        <span class="tile-label">OneDrive</span>
-                    </div>
-                </div>
-            </div>
         </div>
 
 </body>

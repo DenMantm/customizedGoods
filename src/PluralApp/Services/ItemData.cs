@@ -15,6 +15,7 @@ namespace PluralApp.Services
         ItemModel GetTshirt(int id);
         List<ItemModel> GetSampleTshirts();
         ItemModel GetCup(int id);
+        ItemModel GetHat(int id);
     }
 
     public class SqlItemData : IItemData{
@@ -76,9 +77,9 @@ namespace PluralApp.Services
             return result;
         }
 
-        public ItemModel GetCard(int id)
+        public ItemModel GetHat(int id)
         {
-            var result = (from r in _context.ItemModels where r.item_type == "card" && r.id_in_category == id select r).Single();
+            var result = (from r in _context.ItemModels where r.item_type == "hat" && r.id_in_category == id select r).Single();
 
             return result;
         }

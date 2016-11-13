@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0/",
-    "signature": "6fc45d495aaf32d9d6477fc946567c18774b6db9"
+    "signature": "2a3259408368425d4432ef19ac81174a9e42720b"
   },
   "compilationOptions": {
     "defines": [
@@ -26,7 +26,7 @@
           "Microsoft.AspNetCore.StaticFiles": "1.0.0",
           "Microsoft.AspNetCore.Mvc": "1.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "1.0.1",
-          "Microsoft.EntityFrameworkCore.Design": "1.0.1",
+          "Microsoft.EntityFrameworkCore.Design": "1.0.0-preview2-final",
           "Microsoft.AspNetCore.Mvc.Core": "1.0.1"
         },
         "compile": {
@@ -682,17 +682,27 @@
           "lib/netstandard1.3/Microsoft.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Design/1.0.1": {
+      "Microsoft.EntityFrameworkCore.Design/1.0.0-preview2-final": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design.Core": "1.0.0-preview2-final",
+          "Microsoft.Extensions.CommandLineUtils": "1.0.0",
+          "Microsoft.NETCore.App": "1.0.1"
+        },
+        "compile": {
+          "lib/netcoreapp1.0/Microsoft.EntityFrameworkCore.Design.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Design.Core/1.0.0-preview2-final": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Abstractions": "1.0.0",
-          "Microsoft.EntityFrameworkCore.Relational.Design": "1.0.1",
+          "Microsoft.EntityFrameworkCore.Relational.Design": "1.0.0",
           "System.AppContext": "4.1.0",
           "System.Collections.NonGeneric": "4.0.1",
           "System.IO": "4.1.0",
           "System.IO.FileSystem": "4.0.1"
         },
         "compile": {
-          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Design.dll": {}
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Design.Core.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore.Relational/1.0.1": {
@@ -707,7 +717,7 @@
           "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational.Design/1.0.1": {
+      "Microsoft.EntityFrameworkCore.Relational.Design/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "1.0.1"
         },
@@ -746,6 +756,18 @@
         },
         "compile": {
           "lib/netstandard1.3/Microsoft.Extensions.Caching.Memory.dll": {}
+        }
+      },
+      "Microsoft.Extensions.CommandLineUtils/1.0.0": {
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Console": "4.0.0",
+          "System.IO": "4.1.0",
+          "System.Linq": "4.1.0",
+          "System.Resources.ResourceManager": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.Extensions.CommandLineUtils.dll": {}
         }
       },
       "Microsoft.Extensions.Configuration/1.0.0": {
@@ -2715,7 +2737,7 @@
           "Microsoft.AspNetCore.StaticFiles": "1.0.0",
           "Microsoft.AspNetCore.Mvc": "1.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "1.0.1",
-          "Microsoft.EntityFrameworkCore.Design": "1.0.1",
+          "Microsoft.EntityFrameworkCore.Design": "1.0.0-preview2-final",
           "Microsoft.AspNetCore.Mvc.Core": "1.0.1"
         },
         "runtime": {
@@ -3312,6 +3334,9 @@
       "Microsoft.CodeAnalysis.VisualBasic/1.3.0": {
         "dependencies": {
           "Microsoft.CodeAnalysis.Common": "1.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.VisualBasic.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -3371,17 +3396,27 @@
           "lib/netstandard1.3/Microsoft.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Design/1.0.1": {
+      "Microsoft.EntityFrameworkCore.Design/1.0.0-preview2-final": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design.Core": "1.0.0-preview2-final",
+          "Microsoft.Extensions.CommandLineUtils": "1.0.0",
+          "Microsoft.NETCore.App": "1.0.1"
+        },
+        "runtime": {
+          "lib/netcoreapp1.0/Microsoft.EntityFrameworkCore.Design.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Design.Core/1.0.0-preview2-final": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Abstractions": "1.0.0",
-          "Microsoft.EntityFrameworkCore.Relational.Design": "1.0.1",
+          "Microsoft.EntityFrameworkCore.Relational.Design": "1.0.0",
           "System.AppContext": "4.1.0",
           "System.Collections.NonGeneric": "4.0.1",
           "System.IO": "4.1.0",
           "System.IO.FileSystem": "4.0.1"
         },
         "runtime": {
-          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Design.dll": {}
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Design.Core.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore.Relational/1.0.1": {
@@ -3396,7 +3431,7 @@
           "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational.Design/1.0.1": {
+      "Microsoft.EntityFrameworkCore.Relational.Design/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "1.0.1"
         },
@@ -3435,6 +3470,18 @@
         },
         "runtime": {
           "lib/netstandard1.3/Microsoft.Extensions.Caching.Memory.dll": {}
+        }
+      },
+      "Microsoft.Extensions.CommandLineUtils/1.0.0": {
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Console": "4.0.0",
+          "System.IO": "4.1.0",
+          "System.Linq": "4.1.0",
+          "System.Resources.ResourceManager": "4.0.1"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.Extensions.CommandLineUtils.dll": {}
         }
       },
       "Microsoft.Extensions.Configuration/1.0.0": {
@@ -3806,6 +3853,9 @@
           "System.Runtime.Extensions": "4.1.0",
           "System.Runtime.InteropServices": "4.1.0",
           "System.Threading": "4.0.11"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.VisualBasic.dll": {}
         }
       },
       "Microsoft.Win32.Primitives/4.0.1": {
@@ -4361,6 +4411,9 @@
           "System.Runtime": "4.1.0",
           "System.Runtime.Extensions": "4.1.0",
           "System.Text.Encoding": "4.0.11"
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.IO.Compression.ZipFile.dll": {}
         }
       },
       "System.IO.FileSystem/4.0.1": {
@@ -4451,6 +4504,9 @@
           "System.Runtime.InteropServices": "4.1.0",
           "System.Threading": "4.0.11",
           "System.Threading.Tasks": "4.0.11"
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.IO.UnmanagedMemoryStream.dll": {}
         }
       },
       "System.Linq/4.1.0": {
@@ -4501,6 +4557,9 @@
           "System.Runtime.Extensions": "4.1.0",
           "System.Threading": "4.0.11",
           "System.Threading.Tasks": "4.0.11"
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Linq.Parallel.dll": {}
         }
       },
       "System.Linq.Queryable/4.0.1": {
@@ -4639,6 +4698,9 @@
           "System.Resources.ResourceManager": "4.0.1",
           "System.Runtime": "4.1.0",
           "System.Runtime.Extensions": "4.1.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Net.WebHeaderCollection.dll": {}
         }
       },
       "System.Net.WebSockets/4.0.0": {
@@ -4696,6 +4758,9 @@
           "System.Resources.ResourceManager": "4.0.1",
           "System.Runtime": "4.1.0",
           "System.Threading": "4.0.11"
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Reflection.DispatchProxy.dll": {}
         }
       },
       "System.Reflection.Emit/4.0.1": {
@@ -5132,6 +5197,9 @@
           "System.Runtime.Extensions": "4.1.0",
           "System.Threading": "4.0.11",
           "System.Threading.Tasks": "4.0.11"
+        },
+        "runtime": {
+          "lib/netstandard1.1/System.Threading.Tasks.Dataflow.dll": {}
         }
       },
       "System.Threading.Tasks.Extensions/4.0.0": {
@@ -5516,20 +5584,25 @@
       "serviceable": true,
       "sha512": "sha512-bprn1t+6muzkNzh64Art4w20L1FKDFac/Tx4h+4d7Sd9ivRqAaec6MqU700CFo6h6CHjAjWeqzYjQFroCouECQ=="
     },
-    "Microsoft.EntityFrameworkCore.Design/1.0.1": {
+    "Microsoft.EntityFrameworkCore.Design/1.0.0-preview2-final": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-a2vn4bl3C6hJqK4Mm7mz4iuHaE2KdBSav3EKyVlgE2qofxLnw03Hf2nB3LvIQgMw40RodV3tp3o3E+x6jZKTSA=="
+      "sha512": "sha512-RhyjntECuOVsrKjgFog9rv+V7oBsxBNxz5NviF7uHvDDQXLyHH3os/CewQxRNsve114AQH5RX/Bww6qAXlSORQ=="
+    },
+    "Microsoft.EntityFrameworkCore.Design.Core/1.0.0-preview2-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-H3pHksGErQSEwWyvISlDYMslIXftS4XB2m0AvqBS08ECGHagh27mqm/oIyUetzzRad+C2V0zpguJmR14eMiRaA=="
     },
     "Microsoft.EntityFrameworkCore.Relational/1.0.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-2LZ746BTMSoAHsqsxFAVYVzo/ziS682z2evAxDnwwg1Fw27MuxqEjl38YWz5OE1TchmtEPxWWVcup+sL6rjPXg=="
     },
-    "Microsoft.EntityFrameworkCore.Relational.Design/1.0.1": {
+    "Microsoft.EntityFrameworkCore.Relational.Design/1.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-GBN8QmrqcQo4WB4rKsPfzVaVKeHN6GSRF+eOTZWqK1vJ7T5kpG4PtxOkqOw8aZDRJbehAleD+dHYBOkngFzafA=="
+      "sha512": "sha512-pw4EmGTp5U645is0Lyf0C6yU1uQGHVIZiRyxlDNNrRllL0ZjSFKTShv9qbE+fBpvvvArNp2HhDmP7d6vJAt0Dw=="
     },
     "Microsoft.EntityFrameworkCore.SqlServer/1.0.1": {
       "type": "package",
@@ -5545,6 +5618,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-6+7zTufCnZ+tfrUo7RbIRR3LB0BxwOwxfXuo0IbLyIvgoToGpWuz5wYEDfCYNOvpig9tY8FA0I1uRHYmITMXMQ=="
+    },
+    "Microsoft.Extensions.CommandLineUtils/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kXJ8+YvEjp1j7ezJ7yvQMLYbRL6QlpBUjRoBfqghoe80yqZ5azYB90lL4iNeyRCznWF+cGm41aaIoFU0aOq7TQ=="
     },
     "Microsoft.Extensions.Configuration/1.0.0": {
       "type": "package",

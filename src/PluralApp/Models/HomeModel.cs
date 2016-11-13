@@ -10,6 +10,6 @@ namespace PluralApp.Models
     {
         public IEnumerable<ItemModel> bestAvalableCups { get; set; }
         public IEnumerable<ItemModel> bestAvalableTshirts { get; set; }
-        public IEnumerable<ItemModel> bestAvalableCards { get; set; }
+        public IEnumerable<ItemModel> bestAvalableHats { get; set; }
     }
 }

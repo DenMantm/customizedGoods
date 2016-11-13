@@ -37,8 +37,23 @@ namespace PluralApp.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return View();
+            //here wee need to get item from the database with the id of ->
+
+            EditorModel model = new EditorModel();
+
+
+            model.bestAvalableTshirts = (from r in _itemData.GetAll() where r.item_type == "t-shirt" select r);
+            model.bestAvalableCups = (from r in _itemData.GetAll() where r.item_type == "cup" select r);
+            model.bestAvalableHats = (from r in _itemData.GetAll() where r.item_type == "hat" select r);
+
+
+
+
+            return View(model);
         }
+
+
+
 
         //tshirts
 
@@ -56,7 +71,7 @@ namespace PluralApp.Controllers
 
             model.bestAvalableTshirts = (from r in _itemData.GetAll() where r.item_type == "t-shirt" select r);
             model.bestAvalableCups = (from r in _itemData.GetAll() where r.item_type == "cup" select r);
-            model.bestAvalableHats = (from r in _itemData.GetAll() where r.item_type == "card" select r);
+            model.bestAvalableHats = (from r in _itemData.GetAll() where r.item_type == "hat" select r);
 
 
             return View(model);
@@ -80,7 +95,7 @@ namespace PluralApp.Controllers
 
             model.bestAvalableTshirts = (from r in _itemData.GetAll() where r.item_type == "t-shirt" select r);
             model.bestAvalableCups = (from r in _itemData.GetAll() where r.item_type == "cup" select r);
-            model.bestAvalableHats = (from r in _itemData.GetAll() where r.item_type == "card" select r);
+            model.bestAvalableHats = (from r in _itemData.GetAll() where r.item_type == "hat" select r);
 
                 return View("Tshirt",model);
             
@@ -103,7 +118,7 @@ namespace PluralApp.Controllers
 
             model.bestAvalableTshirts = (from r in _itemData.GetAll() where r.item_type == "t-shirt" select r);
             model.bestAvalableCups = (from r in _itemData.GetAll() where r.item_type == "cup" select r);
-            model.bestAvalableHats = (from r in _itemData.GetAll() where r.item_type == "card" select r);
+            model.bestAvalableHats = (from r in _itemData.GetAll() where r.item_type == "hat" select r);
 
 
             return View(model);
@@ -164,7 +179,7 @@ namespace PluralApp.Controllers
         {
 
             //here wee need to get item from the database with the id of ->
-            ItemModel itemModel = _itemData.GetCup(id);
+            ItemModel itemModel = _itemData.GetHat(id);
 
 
             EditorModel model = new EditorModel

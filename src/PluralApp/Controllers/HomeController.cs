@@ -23,7 +23,7 @@ namespace PluralApp.Controllers
             
             model.bestAvalableTshirts = (from r in _itemData.GetAll() where r.item_type == "t-shirt" select r);
             model.bestAvalableCups = (from r in _itemData.GetAll() where r.item_type == "cup" select r);
-            model.bestAvalableCards = (from r in _itemData.GetAll() where r.item_type == "card" select r);
+            model.bestAvalableHats = (from r in _itemData.GetAll() where r.item_type == "hat" select r);
 
 
             return View(model);
