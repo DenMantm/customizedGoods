@@ -1,4 +1,4 @@
-﻿@model PluralApp.Models.EditorModel
+﻿@model CustomizedGoods.Models.EditorModel
 <!DOCTYPE html>
 
 <html>
@@ -41,7 +41,6 @@
             top: 0;
             z-index:-1
         }
-
     </style>
 
  
@@ -288,7 +287,7 @@
             <div class="tile-container">
 
                 <div id="objectPanel">
-                    <div class="popover marker-on-left bg-blue fg-white" style="z-index: 0;">
+                    <div class="popover marker-on-left bg-blue fg-white" >
 
                         @*<button class="btn btn-default text-delete-btn btn-primary delete" onclick="editor_add_picture()" type="button" title="" data-original-title="Add Picture" data-toggle="modal" data-target="#uploadModal">Add Image<i class="icon glyphicon glyphicon-picture glyphicon-white" style="margin-left:10px"></i></button>*@
                         <button type="button" class="btn btn-default text-delete-btn btn-primary delete" data-toggle="modal" data-target="#myModal">Add Image<i class="icon glyphicon glyphicon-picture glyphicon-white" style="margin-left:10px"></i></button>
@@ -296,19 +295,19 @@
 
                     </div>
                     <br />
-                    <div class="popover marker-on-left bg-blue fg-white add_text" style="z-index: 0;">
+                    <div class="popover marker-on-left bg-blue fg-white add_text" >
 
                         <button class="btn btn-default text-delete-btn btn-primary delete" onclick="editor_add_text()" type="button" title="" data-original-title="Add Text">Add Text<i class="icon glyphicon glyphicon-font glyphicon-white" style="margin-left:10px"></i></button>
 
                         <h5>Fonts:</h5>
-                        <div class="dropdown">
+                        <div class="dropdown" style="z-index: 2;">
                             <button class="btn btn-primary dropdown-toggle" id="editor_font_drop_down" type="button" data-toggle="dropdown">
 
                                 <span id="editor_font_drop_down">@Model.fonts[0]</span>
                                 <span class="caret"></span>
                             </button>
 
-                            <ul class="dropdown-menu" style="z-index: 3000;">
+                            <ul class="dropdown-menu" >
                                 @foreach (var item in Model.fonts)
                                 {
                                     <li><a href='javascript:changeTextFont("@item")'>@item</a></li>
@@ -323,7 +322,7 @@
                                 <span class="caret"></span>
                             </button>
 
-                            <ul class="dropdown-menu" style="z-index: 30;">
+                            <ul class="dropdown-menu">
                                 @foreach (var item in Model.colours)
                                 {
                                     <li><a href='javascript:changeTextColor("@item")'>@item</a></li>
@@ -334,7 +333,7 @@
 
                     </div>
                     <br />
-                    <div class="popover marker-on-left bg-blue fg-white" style="z-index: 0;">
+                    <div class="popover marker-on-left bg-blue fg-white" style="z-index: 1;">
 
 
                         <button class="btn btn-default text-delete-btn btn-danger delete" onclick="editor_remove_element()" type="button" title="" data-original-title="Delete">Remove Selected Element<i class="glyphicon glyphicon-remove glyphicon-white" style="margin-left:10px"></i></button>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace PluralApp.Migrations
+namespace CustomizedGoods.Migrations
 {
     public partial class UpdateInit : Migration
     {

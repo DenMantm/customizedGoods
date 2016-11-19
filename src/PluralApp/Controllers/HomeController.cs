@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PluralApp.Services;
-using PluralApp.Models;
+using CustomizedGoods.Services;
+using CustomizedGoods.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using PluralApp.ViewModels;
+using CustomizedGoods.ViewModels;
 
-namespace PluralApp.Controllers
+namespace CustomizedGoods.Controllers
 {
     public class HomeController : Controller
     {

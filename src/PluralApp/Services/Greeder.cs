@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 
-namespace PluralApp
+namespace CustomizedGoods
 {
     public interface IGreeder {
         string GetGreeding();

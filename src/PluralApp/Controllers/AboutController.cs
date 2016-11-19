@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PluralApp.Entites;
-using PluralApp.Models;
+using CustomizedGoods.Entites;
+using CustomizedGoods.Models;
 
-namespace PluralApp.Controllers 
+namespace CustomizedGoods.Controllers 
 {
     public class AboutController : Controller
     {

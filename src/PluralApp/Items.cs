@@ -1,4 +1,4 @@
-﻿namespace PluralApp.ViewModels
+﻿namespace CustomizedGoods.ViewModels
 {
     internal class Items
     {

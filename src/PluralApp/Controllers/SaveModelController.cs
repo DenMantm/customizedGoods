@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Net.Http.Headers;
-using PluralApp.Entites;
-using PluralApp.Models;
-using PluralApp.Services;
+using CustomizedGoods.Entites;
+using CustomizedGoods.Models;
+using CustomizedGoods.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;

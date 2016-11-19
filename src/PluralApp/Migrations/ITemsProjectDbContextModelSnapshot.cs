@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using PluralApp.Entites;
+using CustomizedGoods.Entites;
 
-namespace PluralApp.Migrations
+namespace CustomizedGoods.Migrations
 {
     [DbContext(typeof(ITemsProjectDbContext))]
     partial class ITemsProjectDbContextModelSnapshot : ModelSnapshot

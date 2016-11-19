@@ -1,12 +1,12 @@
-﻿using PluralApp.Entites;
-using PluralApp.Models;
+﻿using CustomizedGoods.Entites;
+using CustomizedGoods.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace PluralApp.Services
+namespace CustomizedGoods.Services
 {
     public interface IItemData
     {

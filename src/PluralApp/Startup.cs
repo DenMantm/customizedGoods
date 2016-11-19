@@ -9,11 +9,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Routing;
-using PluralApp.Services;
-using PluralApp.Entites;
+using CustomizedGoods.Services;
+using CustomizedGoods.Entites;
 using Microsoft.EntityFrameworkCore;
 
-namespace PluralApp
+namespace CustomizedGoods
 {
     public class Startup
     {
@@ -41,7 +41,7 @@ namespace PluralApp
 
             services.AddScoped<IItemData, SqlItemData>();
             //configuring db
-            services.AddDbContext<ITemsProjectDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Azure")));
+            services.AddDbContext<ITemsProjectDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
         }
 

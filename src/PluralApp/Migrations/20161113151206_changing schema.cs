@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace PluralApp.Migrations
+namespace CustomizedGoods.Migrations
 {
     public partial class changingschema : Migration
     {

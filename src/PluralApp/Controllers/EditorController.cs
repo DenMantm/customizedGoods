@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using PluralApp.Models;
-using PluralApp.Entites;
-using PluralApp.Services;
+using CustomizedGoods.Models;
+using CustomizedGoods.Entites;
+using CustomizedGoods.Services;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace PluralApp.Controllers
+namespace CustomizedGoods.Controllers
 {
     public class EditorController : Controller
     {
